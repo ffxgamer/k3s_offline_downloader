@@ -37,6 +37,7 @@ If you want change it, you can use `--githubproxy` flag like this:
 By default, the download directory is
 * k3s bin : ./bin
 * k3s images : ./rancher/k3s/agent/images/
+
 If you want change it, you can use `--binpath` and `--imagepath` flag like this:
 ```bash
 # Specify the download directory and download k3s offline install package, include of k3s exec bin and airgap images.
