@@ -25,12 +25,12 @@
 
 ### githubproxy
 This binary will download k3s offline install package from GitHub.com, but in some cases, we can't access GitHub.com directly.
-So, GitHub Proxy is added by default.The url is `https://ghproxy.com`.
-If you want change it, you can use `--githubproxy` flag like this:
+So, GitHub Proxy is added by default.The url is `https://gh-proxy.com`.
+If you want change it, you can use `-p` flag like this:
 ```bash
-./k3s-offline-downloader get -v v1.27.4+k3s1 -a amd64 --githubproxy https://ghproxy.com
+./k3s-offline-downloader get -v v1.27.4+k3s1 -a amd64 -p https://gh-proxy.com
 # or disable it
-./k3s-offline-downloader get -v v1.27.4+k3s1 -a amd64 --githubproxy ""
+./k3s-offline-downloader get -v v1.27.4+k3s1 -a amd64 -p ""
 ````
 
 ### Specify the download directory

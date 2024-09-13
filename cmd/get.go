@@ -24,6 +24,7 @@ package cmd
 import (
 	"context"
 	"fmt"
+
 	"github.com/google/go-github/v53/github"
 
 	"github.com/spf13/cobra"
@@ -95,7 +96,7 @@ func init() {
 	// getCmd.PersistentFlags().String("foo", "", "A help for foo")
 	getCmd.PersistentFlags().StringVarP(&Version, "version", "v", "latest", "the version of k3s, like v1.27.4+k3s1.")
 	getCmd.PersistentFlags().StringVarP(&Arch, "arch", "a", "amd64", "the architecture of k3s, amd64 or arm64.")
-	getCmd.PersistentFlags().StringVarP(&GithubProxy, "proxy", "p", "https://ghproxy.com", "the proxy of github, like https://ghproxy.com")
+	getCmd.PersistentFlags().StringVarP(&GithubProxy, "proxy", "p", "https://gh-proxy.com", "the proxy of github, like https://gh-proxy.com")
 	//getCmd.MarkPersistentFlagRequired("proxy")
 	getCmd.PersistentFlags().StringVarP(&BinPath, "binpath", "b", "./bin/", "the path to save k3s binary.")
 	getCmd.PersistentFlags().StringVarP(&ImagePath, "imagepath", "i", "./rancher/k3s/agent/images/", "the path to save k3s images.")

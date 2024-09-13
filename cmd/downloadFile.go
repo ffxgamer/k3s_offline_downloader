@@ -3,14 +3,16 @@ package cmd
 import (
 	"fmt"
 	"github.com/cavaliergopher/grab/v3"
+	"log"
 	"os"
+	"path/filepath"
 	"time"
 )
 
 func downloadFile(fileUrl string, dstPath string) {
 	// create client
 	client := grab.NewClient()
-	req, _ := grab.NewRequest(dstPath, fileUrl)
+	req, _ := grab.NewRequest(".", fileUrl)
 
 	// start download
 	fmt.Printf("Downloading %v...\n", req.URL())
@@ -42,5 +44,11 @@ Loop:
 		os.Exit(1)
 	}
 
+	// copy file from tmp to destination path
+	_, filename := filepath.Split(resp.Filename)
+	destFileName := filepath.Join(dstPath, filename)
+	if err := os.Rename(resp.Filename, destFileName); err != nil {
+		log.Fatal(err)
+	}
 	fmt.Printf("Download saved to ./%v \n", resp.Filename)
 }
